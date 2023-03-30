@@ -8,7 +8,7 @@ int main() {
     scanf("%d", &size);
 
     // dynamically allocate memory for array
-    int *arr = (int*) malloc(size * sizeof(int));
+    int *arr = (int *) malloc(size * sizeof(int));
     if (arr == NULL) { // check if allocation was successful
         printf("Memory allocation failed.\n");
         return 1;
@@ -36,7 +36,7 @@ int main() {
 
     fp = fopen("data.bin", "rb");
     fread(&size, sizeof(int), 1, fp);
-    int *arr2 = (int*) malloc(size * sizeof(int));
+    int *arr2 = (int *) malloc(size * sizeof(int));
     fread(arr2, sizeof(int), size, fp);
     fclose(fp);
 
