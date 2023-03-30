@@ -10,7 +10,7 @@ int main() {
     // dynamically allocate memory for array
     int *arr = (int *) malloc(size * sizeof(int));
     if (arr == NULL) { // check if allocation was successful
-        printf("Memory allocation failed.\n");
+        printf("Alokace pameti selhala.\n");
         return 1;
     }
 
@@ -18,7 +18,7 @@ int main() {
     for (int i = 0; i < size; i++) {
         arr[i] = rand() % 100;
     }
-    printf("Vygeneroval jsem tato čísla:\n");
+    printf("Vygeneroval jsem tato cisla:\n");
     for (int i = 0; i < size; i++) {
         printf("%d ", arr[i]);
     }
@@ -31,8 +31,10 @@ int main() {
 
     fwrite(&size, sizeof(int), 1, fp); // write size of array to file
     fwrite(arr, sizeof(int), size, fp); // write array to file
-    fclose(fp); // close file
+    fclose(fp);
     free(arr);
+
+    // -- -- -- -- --
 
     fp = fopen("data.bin", "rb");
     fread(&size, sizeof(int), 1, fp);
@@ -40,7 +42,7 @@ int main() {
     fread(arr2, sizeof(int), size, fp);
     fclose(fp);
 
-    printf("\n\nV souboru jsou uložena tato čísla:\n");
+    printf("\n\nV souboru jsou ulozena tato cisla:\n");
     for (int i = 0; i < size; i++) {
         printf("%d ", arr2[i]);
     }
